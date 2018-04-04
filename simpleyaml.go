@@ -180,3 +180,9 @@ func (y *Yaml) GetMapKeys() ([]string, error) {
 	}
 	return keys, nil
 }
+
+func (y *Yaml) Unmarshal(out interface{}) error {
+	item, _ := yaml.Marshal(y.data)
+
+	return yaml.Unmarshal(item, out)
+}
